@@ -1,4 +1,4 @@
-const romanToInt = require('../../src/recursion/roman');
+const romanToInt = require('../../src/string/roman');
 
 test('convert III to 3', () => {
   expect(romanToInt('III')).toBe(3);
