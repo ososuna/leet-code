@@ -7,12 +7,14 @@
 const twoSum = function(nums, target) {
   let values = {};
   for (let index = 0; index < nums.length; index++) {
-    if (nums[index] < target) {
-      values[nums[index]] = target - nums[index];
+    values[nums[index]] = target - nums[index];
+  }
+  for (let index = 0; index < Object.keys(values).length; index++) {
+    const firstIndex = nums.indexOf(Number(Object.keys(values)[index]));
+    if (nums.indexOf(Object.values(values)[index], firstIndex+1) !== -1) {
+      return [firstIndex, nums.indexOf(Object.values(values)[index], firstIndex+1)];
     }
   }
-  var firstIndex = nums.indexOf(Number(Object.keys(values)[0]));
-  return [firstIndex, nums.indexOf(Object.values(values)[0], firstIndex+1)];
 };
 
 module.exports = twoSum;
