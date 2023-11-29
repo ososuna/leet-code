@@ -8,29 +8,27 @@
  * @return {void} Do not return anything, modify nums1 in-place instead.
 */
 const mergeSortedArray = function(nums1, m, nums2, n) {
-  const numsMerge = [];
   let indexNums1 = 0;
   let indexNums2 = 0;
-  for (let i = 0; i < m+n; i++) {
+  for (let i = m+n; i > 0; i--) {
     if (nums1[indexNums1] < nums2[indexNums2]) {
       if (i<=m) {
-        numsMerge[i] = nums1[indexNums1];
+        nums1[i] = nums1[indexNums1];
         indexNums1++;
       } else {
-        numsMerge[i] = nums2[indexNums2];
+        nums1[i] = nums2[indexNums2];
         indexNums2++;
       }
     } else {
       if (i<=n) {
-        numsMerge[i] = nums2[indexNums2];
+        nums1[i] = nums2[indexNums2];
         indexNums2++;
       } else {
-        numsMerge[i] = nums1[indexNums1];
+        nums1[i] = nums1[indexNums1];
         indexNums1++;
       }
     }
   }
-  nums1 = numsMerge;
 };
 
 module.exports = mergeSortedArray;
